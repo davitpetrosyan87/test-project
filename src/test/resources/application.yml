@@ -1,0 +1,16 @@
+spring:
+  kafka:
+    bootstrap-servers: ${spring.embedded.kafka.brokers}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      retries: 3
+      acks: all
+
+app:
+  kafka:
+    topic: event-scores
+  external-api:
+    base-url: http://localhost:8080
+  polling:
+    interval-seconds: 1
